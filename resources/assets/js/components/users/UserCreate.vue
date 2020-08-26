@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group">
-            <a href="#" v-on:click="back()" class="btn btn-default">Back</a>
+            <a href="javascript:;" v-on:click="back()" class="btn btn-default">Back</a>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">Create user</div>

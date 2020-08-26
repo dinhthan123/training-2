@@ -4,9 +4,9 @@
             <div class="panel-heading">Users list</div>
             <div class="panel-body">
                 <div class="form-group">
-                    <a href="#" v-on:click="userCreate()" class="btn btn-success btn-create"><i class="fa fa-plus"></i> Create New User</a>
+                    <a href="javascript:;" v-on:click="createUser()" class="btn btn-success btn-create"><i class="fa fa-plus"></i> Create New User</a>
                     <div class="pull-right">
-                        <form v-on:submit.prevent="ListUser()">
+                        <form v-on:submit.prevent="listUser()">
                             <input width="220px" type="text" v-model="keywords" class="form-control text-left" placeholder="Search">
                         </form>
                     </div>
@@ -35,8 +35,8 @@
                             <td class="text-left">{{ user.address }}</td>
                             <td class="text-center">{{ user.created_at }}</td>
                             <td class="text-center">
-                                <a href="#" v-on:click="userEdit(user.id)" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                <a href="#" class="btn btn-sm btn-danger" v-on:click="deleteEntry(user.id, index)">
+                                <a href="javascript:;" v-on:click="editUser(user.id)" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="javascript:;" class="btn btn-sm btn-danger" v-on:click="deleteUser(user.id, index)">
                                     <i class="fa fa-trash-alt"></i> Delete
                                 </a>
                             </td>
@@ -96,7 +96,7 @@
                         alert("Could not load users 123");
                     });
             },
-            deleteEntry(id, index) {
+            deleteUser(id, index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
                     axios.delete('/api/v1/users/' + id)
@@ -108,10 +108,10 @@
                         });
                 }
             },
-            userCreate() {
+            createUser() {
             	window.location.href = "/users/create";
             },
-            userEdit(id) {
+            editUser(id) {
             	window.location.href = "/users/" + id +"/edit";
             }
         },

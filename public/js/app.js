@@ -2441,7 +2441,7 @@ __webpack_require__.r(__webpack_exports__);
         alert("Could not load users 123");
       });
     },
-    deleteEntry: function deleteEntry(id, index) {
+    deleteUser: function deleteUser(id, index) {
       if (confirm("Do you really want to delete it?")) {
         var app = this;
         axios["delete"]('/api/v1/users/' + id).then(function (resp) {
@@ -2451,10 +2451,10 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    userCreate: function userCreate() {
+    createUser: function createUser() {
       window.location.href = "/users/create";
     },
-    userEdit: function userEdit(id) {
+    editUser: function editUser(id) {
       window.location.href = "/users/" + id + "/edit";
     }
   }
@@ -20731,7 +20731,7 @@ var render = function() {
         "a",
         {
           staticClass: "btn btn-default",
-          attrs: { href: "#" },
+          attrs: { href: "javascript:;" },
           on: {
             click: function($event) {
               return _vm.back()
@@ -21122,7 +21122,7 @@ var render = function() {
         "a",
         {
           staticClass: "btn btn-default",
-          attrs: { href: "#" },
+          attrs: { href: "javascript:;" },
           on: {
             click: function($event) {
               return _vm.back()
@@ -21517,10 +21517,10 @@ var render = function() {
             "a",
             {
               staticClass: "btn btn-success btn-create",
-              attrs: { href: "#" },
+              attrs: { href: "javascript:;" },
               on: {
                 click: function($event) {
-                  return _vm.userCreate()
+                  return _vm.createUser()
                 }
               }
             },
@@ -21534,7 +21534,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.ListUser()
+                    return _vm.listUser()
                   }
                 }
               },
@@ -21615,10 +21615,10 @@ var render = function() {
                         "a",
                         {
                           staticClass: "btn btn-sm btn-primary",
-                          attrs: { href: "#" },
+                          attrs: { href: "javascript:;" },
                           on: {
                             click: function($event) {
-                              return _vm.userEdit(user.id)
+                              return _vm.editUser(user.id)
                             }
                           }
                         },
@@ -21632,10 +21632,10 @@ var render = function() {
                         "a",
                         {
                           staticClass: "btn btn-sm btn-danger",
-                          attrs: { href: "#" },
+                          attrs: { href: "javascript:;" },
                           on: {
                             click: function($event) {
-                              return _vm.deleteEntry(user.id, index)
+                              return _vm.deleteUser(user.id, index)
                             }
                           }
                         },
