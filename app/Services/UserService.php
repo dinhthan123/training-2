@@ -98,6 +98,11 @@ class UserService implements UserServiceInterface
             $id = $request->id;
             // upload image
             if (!empty($request->image)) {
+                // delete image exists
+                $user = $this->find($id);
+                $oldImage = User::PATH_UPLOAD . $user->avatar;
+                deleteImageExists($oldImage);
+
                 $nameAvatar = uploadImage($request->image, $id);
                 try {
                     $user = $this->find($id);

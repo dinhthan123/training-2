@@ -14,6 +14,8 @@ class User extends Authenticatable
 
     const PERPAGE = 10;
 
+    const PATH_UPLOAD = '/public/image/';
+
     const SUCCESS = 'success';
     const UNSUCCESS = 'unsuccess';
 
