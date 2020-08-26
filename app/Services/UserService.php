@@ -33,7 +33,7 @@ class UserService implements UserServiceInterface
             });
         }
 
-        $users = $query->orderBy('created_at', 'asc')->paginate($perPage);
+        $users = $query->orderBy('created_at', 'desc')->paginate($perPage);
 
         return UserResource::collection($users);
     }

@@ -35,7 +35,7 @@
                             <td class="text-left">{{ user.address }}</td>
                             <td class="text-center">{{ user.created_at }}</td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                                <a href="#" v-on:click="userEdit(user.id)" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
                                 <a href="#" class="btn btn-sm btn-danger" v-on:click="deleteEntry(user.id, index)">
                                     <i class="fa fa-trash-alt"></i> Delete
                                 </a>
@@ -110,6 +110,9 @@
             },
             userCreate() {
             	window.location.href = "/users/create";
+            },
+            userEdit(id) {
+            	window.location.href = "/users/" + id +"/edit";
             }
         },
     }
