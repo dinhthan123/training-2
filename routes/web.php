@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'UserController@index')->name('users.index');
 Route::get('/users/create', 'UserController@create')->name('users.create');
 Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
+Route::get('/users/list', 'UserController@list')->name('users.list');

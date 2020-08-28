@@ -31,4 +31,6 @@ Route::group(['prefix' => '/v1', 'namespace' => 'Api', 'as' => 'api.'], function
     Route::get('users/department', 'UserController@getDepartments')->name('department');
     // upload image
     Route::patch('upload/avatar', 'UserController@uploadAvatar')->name('upload-avatar');
+    // use list test
+    Route::get('users/list', 'UserController@getUsersForDataTable')->name('users.getUsersForDataTable');
 });

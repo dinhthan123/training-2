@@ -75,5 +75,13 @@ class UserController extends Controller
 
         return $response;
     }
+
+    public function getUsersForDataTable(Request $request)
+    {
+        
+        $query = $this->userService->getListUser($request);
+
+        return $query;
+    }
 }
 

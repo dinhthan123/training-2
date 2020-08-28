@@ -5,6 +5,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <a href="javascript:;" v-on:click="createUser()" class="btn btn-success btn-create"><i class="fa fa-plus"></i> Create New User</a>
+                    <a href="javascript:;" v-on:click="listUserSort()" class="btn btn-info btn-create"><i class="fa fa-list"></i> List Data (Sort)</a>
                     <div class="pull-right">
                         <form v-on:submit.prevent="listUser()">
                             <input width="220px" type="text" v-model="keywords" class="form-control text-left" placeholder="Search">
@@ -113,6 +114,9 @@
             },
             editUser(id) {
             	window.location.href = "/users/" + id +"/edit";
+            },
+            listUserSort() {
+                window.location.href = "/users/list";
             }
         },
     }

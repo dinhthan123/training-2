@@ -28,6 +28,7 @@ Vue.component('Loading', VueLoading);
 Vue.component('user-index', require('./components/users/UserIndex.vue').default);
 Vue.component('user-create', require('./components/users/UserCreate.vue').default);
 Vue.component('user-edit', require('./components/users/UserEdit.vue').default);
+Vue.component('user-list-test', require('./components/users/UserListTest.vue').default);
 
 
 const app = new Vue({

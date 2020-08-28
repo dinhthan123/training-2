@@ -81,4 +81,12 @@ class UserController extends Controller
     {
         //
     }
+
+    public function list()
+    {
+        $fetchUrl = \URL::to('/');
+        $columns = ['id', 'name', 'email', 'birthday', 'gender', 'department', 'address', 'created_at'];
+        
+        return view('users.list', compact('fetchUrl', 'columns'));
+    }
 }

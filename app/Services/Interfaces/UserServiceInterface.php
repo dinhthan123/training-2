@@ -11,4 +11,5 @@ interface UserServiceInterface
 	public function upload($request);
 	public function genders();
 	public function departments();
+	public function getListUser($request);
 }

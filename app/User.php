@@ -57,7 +57,13 @@ class User extends Authenticatable
         $this->attributes['birthday'] = date('Y-m-d', strtotime($date));
     }
 
-    public function genders() {
+    public function getCreatedAtAttribute($value)
+    {
+        return !empty($value) ? date('Y-m-d H:i:s', strtotime($value)) : null;
+    }
+
+    public function genders() 
+    {
         $data = [
             ['value' => self::MALE, 'name' => self::MALE],
             ['value' => self::FEMALE, 'name' => self::FEMALE],
@@ -67,7 +73,8 @@ class User extends Authenticatable
     }
 
 
-    public function departments() {
+    public function departments() 
+    {
         $data = [
             ['value' => self::MEMBER, 'name' => self::MEMBER],
             ['value' => self::MANAGER, 'name' => self::MANAGER],

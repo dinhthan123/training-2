@@ -115,4 +115,22 @@ class UserService implements UserServiceInterface
 
         return $nameAvatar;
     }
+
+    public function getListUser($request)
+    {
+        $searchParams = ['search' => $request->keywords ? $request->keywords : null];
+
+        $query = $this->user->select('id', 'name', 'email', 'birthday', 'gender', 'department', 'address', 'created_at')->orderBy($request->column, $request->order);
+        if (!empty($searchParams['search'])) {
+            $s = $searchParams['search'];
+            $query->where(function($q) use($s){
+                $q->where('users.name', 'LIKE', '%'.$s.'%')
+                ->orWhere('users.email', 'LIKE', '%'.$s.'%');
+            });
+        }
+
+        $users = $query->paginate($request->per_page);
+
+        return UserResource::collection($users);
+    }
 }
