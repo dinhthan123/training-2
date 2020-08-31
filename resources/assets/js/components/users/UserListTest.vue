@@ -25,6 +25,7 @@
 			                            <i v-else class="fas fa-arrow-down"></i>
 			                        </span>
 			                    </th>
+			                    <th class="text-center" width="12%">Action</th>
 			                </tr>
 			            </thead>
 			            <tbody>
@@ -34,6 +35,14 @@
 			                <tr v-for="(data, key1) in tableData" :key="data.id" class="m-datatable__row" v-else>
 			                    <td>{{ serialNumber(key1) }}</td>
 			                    <td v-for="(value, key) in data">{{ value }}</td>
+			                    <td class="text-center">
+	                                <user-edit-modal :show="showModal(data.id)" @close="toggleModal(data.id)"></user-edit-modal>
+					            	<a class="text-sm" href="#" @click.stop="toggleModal(data.id)">Show</a>
+
+	                                <a href="javascript:;" class="btn btn-sm btn-danger" v-on:click="deleteUser(data.id, index)">
+	                                    <i class="fa fa-trash-alt"></i> Delete
+	                                </a>
+	                            </td>
 			                </tr>
 			            </tbody>
 	                </table>
@@ -65,13 +74,17 @@
 </template>
 
 <script>
+	import UserEditModal from '../../components/users/UserEditModal.vue';
+
     export default {
+    	components: { UserEditModal },
 		props: {
 			fetchUrl: { type: String, required: true },
 			columns: { type: Array, required: true },
 		},
 		data() {
 			return {
+				activeModal: 0,
 				tableData: [],
 				url: '',
 				pagination: {
@@ -169,6 +182,19 @@
             },
             back() {
             	window.location.href = "/";
+            },
+            editUserModal(id) {
+            	window.location.href = "/users/edit-modal/" + id;
+            },
+            showModal: function(id) {
+                return this.activeModal === id 
+            },
+            toggleModal: function (id) {
+                if(this.activeModal !== 0) {
+                    this.activeModal = 0
+                    return false
+                }
+                this.activeModal = id
             }
       	},
       	filters: {
