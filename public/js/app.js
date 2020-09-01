@@ -1918,6 +1918,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['show'],
   mounted: function mounted() {
@@ -2547,7 +2564,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_users_UserEditModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/users/UserEditModal.vue */ "./resources/assets/js/components/users/UserEditModal.vue");
+/* harmony import */ var _components_users_UserEditModal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/users/UserEditModal.vue */ "./resources/assets/js/components/users/UserEditModal.vue");
 //
 //
 //
@@ -2626,7 +2643,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    UserEditModal: _components_users_UserEditModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    UserEditModal: _components_users_UserEditModal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
     fetchUrl: {
@@ -2819,7 +2836,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n*[data-v-e8b3bf02] {\r\n    box-sizing: border-box;\n}\n.modal-mask[data-v-e8b3bf02] {\r\n    position: fixed;\r\n    z-index: 9998;\r\n    top: 20%;\r\n    left: 20%;\r\n    width: 60%;\r\n    height: 60%;\r\n    background-color: rgba(0, 0, 0, .5);\r\n    transition: opacity .3s ease;\r\n    overflow-x: auto;\n}\n.modal-container[data-v-e8b3bf02] {\r\n    width: 75%;\r\n    height: 80%;\r\n    margin: 30px auto;\r\n    padding: 20px 30px;\r\n    background-color: #fff;\r\n    border-radius: 2px;\r\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\r\n    transition: all .3s ease;\n}\n.modal-body[data-v-e8b3bf02] {\r\n    margin: 20px 0;\n}\r\n/*\r\n * The following styles are auto-applied to elements with\r\n * transition=\"modal\" when their visibility is toggled\r\n * by Vue.js.\r\n *\r\n * You can easily play with the modal transition by editing\r\n * these styles.\r\n */\n.modal-enter[data-v-e8b3bf02] {\r\n  opacity: 0;\n}\n.modal-leave-active[data-v-e8b3bf02] {\r\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-e8b3bf02],\r\n.modal-leave-active .modal-container[data-v-e8b3bf02] {\r\n  transform: scale(1.1);\n}\r\n", ""]);
+exports.push([module.i, "\n.modal-mask[data-v-e8b3bf02] {\n    position: fixed;\n    z-index: 9998;\n    top: 20%;\n    left: 20%;\n    width: 60%;\n    height: 60%;\n    background-color: rgba(0, 0, 0, .5);\n    transition: opacity .3s ease;\n    overflow-x: auto;\n}\n.modal-container[data-v-e8b3bf02] {\n    width: 75%;\n    height: 80%;\n    margin: 42px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    transition: all .3s ease;\n}\n.modal-body[data-v-e8b3bf02] {\n    margin: 20px 0;\n}\n.modal-enter[data-v-e8b3bf02] {\n  opacity: 0;\n}\n.modal-leave-active[data-v-e8b3bf02] {\n  opacity: 0;\n}\n.modal-enter .modal-container[data-v-e8b3bf02],\n.modal-leave-active .modal-container[data-v-e8b3bf02] {\n  transform: scale(1.1);\n}\n", ""]);
 
 // exports
 
@@ -21112,24 +21129,62 @@ var render = function() {
             expression: "show"
           }
         ],
-        staticClass: "modal-mask",
-        on: { click: _vm.close }
+        staticClass: "modal-mask"
       },
       [
-        _c(
-          "div",
-          {
-            staticClass: "modal-container",
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-                return _vm.close($event)
-              }
-            }
-          },
-          [_vm._t("default")],
-          2
-        )
+        _c("div", { staticClass: "modal-container" }, [
+          _c(
+            "div",
+            { staticClass: "modal-header" },
+            [
+              _vm._t("header", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        return _vm.close($event)
+                      }
+                    }
+                  },
+                  [_vm._v("×")]
+                ),
+                _vm._v("\n                     header\n                ")
+              ])
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "modal-body" },
+            [
+              _vm._t("body", [
+                _vm._v("\n                     body\n                ")
+              ])
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-footer" }, [
+            _c(
+              "button",
+              {
+                staticClass: "button-close",
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    return _vm.close($event)
+                  }
+                }
+              },
+              [_vm._v("\n                    Close\n                ")]
+            )
+          ])
+        ])
       ]
     )
   ])
@@ -21940,13 +21995,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("modal", { attrs: { show: _vm.show }, on: { close: _vm.close } }, [
-        _vm._v(
-          "\n      //The elements that we wanted to be shown or used.  \n    "
-        )
-      ])
-    ],
+    [_c("modal", { attrs: { show: _vm.show }, on: { close: _vm.close } })],
     1
   )
 }
